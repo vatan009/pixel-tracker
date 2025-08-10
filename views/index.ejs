@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mail Tracker Dashboard</title>
+</head>
+<body>
+  <h1>Tracking Pixels</h1>
+
+  <form action="/create" method="POST">
+    <button type="submit">Create New Pixel</button>
+  </form>
+
+  <table border="1" cellpadding="5">
+    <tr>
+      <th>Pixel ID</th>
+      <th>Tracker URL</th>
+      <th>Logs</th>
+    </tr>
+    <% pixels.forEach(pixel => { %>
+      <tr>
+        <td><%= pixel.id %></td>
+        <td><%= baseUrl %>/tracker/<%= pixel.id %>.png</td>
+        <td><a href="/logs/<%= pixel.id %>">View Logs</a></td>
+      </tr>
+    <% }) %>
+  </table>
+</body>
+</html>

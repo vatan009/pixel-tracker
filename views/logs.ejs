@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Logs for Pixel <%= pixel.id %></title>
+</head>
+<body>
+  <h1>Logs for Pixel: <%= pixel.id %></h1>
+  <p>Tracker URL: <%= baseUrl %>/tracker/<%= pixel.id %>.png</p>
+
+  <table border="1" cellpadding="5">
+    <tr>
+      <th>Opened At</th>
+      <th>IP Address</th>
+      <th>User-Agent</th>
+    </tr>
+    <% logs.forEach(log => { %>
+      <tr>
+        <td><%= log.opened_at %></td>
+        <td><%= log.ip %></td>
+        <td><%= log.user_agent %></td>
+      </tr>
+    <% }) %>
+  </table>
+
+  <p><a href="/">Back to Dashboard</a></p>
+</body>
+</html>
